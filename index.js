@@ -43,5 +43,50 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// Write your code here
+//selecting element by header element
+const bookStoreTitle = document.getElementById('header');
+console.log("Header element:", bookStoreTitle);
 
+//changing  text to book store name
+bookStoreTitle.textContent = bookStore.name;
+console.log("Updated header text:", bookStoreTitle.textContent);
+
+const bookList = document.getElementById('book-list');
+  console.log("selected book-list element:", bookList);
+
+
+//looping through the books and creating elements for each book
+bookStore.books.forEach(book => {
+    console
+
+    const bookContainer = document.createElement('li');
+    const bookTitle = document.createElement('h3');
+    const bookAuthor = document.createElement('p');
+    const bookImage = document.createElement('img');
+    console.log("created li, h3, p, img elements:");
+
+//setting the text content and image source for each book
+    bookTitle.textContent = book.title;
+    console.log("Set booktitle text to:", book.title);
+
+    bookAuthor.textContent = book.author;
+    console.log("Set bookAuthor to:", book.author);
+
+    bookImage.src = book.imageUrl;
+    console.log("Set bookImage src to:", book.imageUrl);
+    
+//appending book elements to booklist
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+    console.log("Appended title, author, and image to to bookContainer");
+
+   
+
+    //appending bookContainer to bookList
+    bookList.appendChild(bookContainer);
+    console.log("Appended bookContainer to booklist");
+});
+
+console.log("Finished rendering book list", bookStore.books.length);
